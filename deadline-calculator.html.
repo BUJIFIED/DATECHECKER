@@ -1,7 +1,5 @@
-# DATECHECKER
-Tool to check date
 <style>
-  /* --- WRAPPER (Centers the single widget) --- */
+  /* --- WRAPPER --- */
   .bujified-wrapper {
     display: flex;
     justify-content: center;
@@ -11,10 +9,10 @@ Tool to check date
     padding: 20px 0;
   }
 
-  /* --- WIDGET BOX STYLES --- */
+  /* --- WIDGET BOX --- */
   .bujified-widget {
     width: 100%;
-    max-width: 600px; /* Max width for single view */
+    max-width: 600px;
     min-width: 320px;
     background: #ffffff;
     padding: 35px;
@@ -66,20 +64,24 @@ Tool to check date
   .deadline-label { font-size: 11px; text-transform: uppercase; font-weight: bold; color: #333; display: block; }
   .deadline-date { font-size: 18px; font-weight: 800; color: #1a1a1a; }
   
-  /* --- ACTION BUTTONS (Hidden by default) --- */
+  /* --- OPTIONS (Text or Buttons) --- */
   .option-container { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1); display: none; }
   
+  /* Style for the confirmation text */
+  .confirmation-text {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #c8e6c9;
+  }
+
   .dtf-btn {
     display: block; width: 100%; background-color: #ff4081; color: white; text-decoration: none;
     padding: 14px; border-radius: 6px; font-weight: bold; text-transform: uppercase; font-size: 14px; text-align: center;
   }
-  
-  .intake-btn {
-    display: block; width: 100%; background-color: #32CD32; color: #000; text-decoration: none;
-    padding: 14px; border-radius: 6px; font-weight: bold; text-transform: uppercase; font-size: 14px; text-align: center;
-    border: 1px solid #28a745;
-  }
-  .intake-btn:hover { background-color: #28a745; color: white; }
 </style>
 
 <div class="bujified-wrapper">
@@ -107,8 +109,10 @@ Tool to check date
       </div>
 
       <div id="intakeOption" class="option-container">
-        <p style="font-size:12px; color:#666; margin-bottom:5px;">Timeline looks good!</p>
-        <a href="https://www.bujified.com/apparel" class="intake-btn">Start Intake Form &rarr;</a>
+        <div class="confirmation-text">
+          ✅ Timeline Approved.<br>
+          Please confirm below by entering this date in the Event Date field.
+        </div>
       </div>
 
       <div id="dtfOption" class="option-container">
@@ -120,7 +124,6 @@ Tool to check date
 </div>
 
 <script>
-  // Safe Mode: Wrapping logic but exposing checkTimeline to the window
   (function() {
     window.checkTimeline = function() {
       // 1. Get Elements
